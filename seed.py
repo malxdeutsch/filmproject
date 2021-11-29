@@ -8,7 +8,7 @@ fake = Faker()
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FilmProject.settings')
 django.setup()
 
-from films.models import *
+from films.models import Country, Category, Film, Director
 
 def create_country():
     for _ in range(10):
@@ -32,4 +32,4 @@ def create_film():
         category = models.random.choice(Category.objects.all()),
         director = models.random.choice(Director.objects.all()))
 
-# create_vehicle()
+# create_film()
