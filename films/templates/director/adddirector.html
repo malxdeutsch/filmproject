@@ -1,12 +1,16 @@
 {% extends "partials/base.html" %}
+{% load bootstrap5 %}
+{% block title %}
+Director | Create
+{% endblock %}
+
 {% block content %}
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <ul>
-        {{ form.as_ul }}
-    </ul>
-    <button>Submit</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button "Save" button_type="submit" button_class="btn-success" %}
+
 </form>
 
 {% endblock %}

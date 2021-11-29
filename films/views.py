@@ -5,19 +5,20 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-class AddFilmCreateView(CreateView):
+class FilmCreateView(CreateView):
     model = Film
     fields = '__all__'
-    template_name = 'addfilm.html'
+    template_name = 'film/addfilm.html'
     success_url = reverse_lazy('homepage')
 
 
-class AddDirectorCreateView(CreateView):
+class DirectorCreateView(CreateView):
     model = Director
     fields = '__all__'
-    template_name = 'addtemplate.html'
+    template_name = 'director/adddirector.html'
     success_url = reverse_lazy('homepage')
 
-class HomepageDetailView(ListView):
-    model = Film
-   
+class HomepageListView(ListView):
+    queryset = Film.objects.all().order_by('-added_date')
+    context_object_name = 'films'
+    template_name = 'homepage.html'

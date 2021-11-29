@@ -1,14 +1,25 @@
 {% extends 'partials/base.html'%}
+{% block title %}
+Homepage
+{% endblock %}
 {% block content %}
-{% for film in films %}
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">film.title</h5>
-        {%for director in film.director_set.all %}
-        <li class="card-text">"director.first_name"</li>
-        <li class="card-text">"director.last_name"</li>
-
+<div class="row">
+    {% for film in films %}
+    <div class="card mx-1" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ film.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Released: {{ film.release_date }} </h6>
+            <p class="card-text">Directors:
+            <ul>
+                {% for director in film.directors.all %}
+                <li>{{ director }}</li>
+                {% endfor %}
+            </ul>
+            </p>
+            <p class="card-text"></p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
     </div>
     {% endfor %}
 </div>

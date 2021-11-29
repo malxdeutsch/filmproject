@@ -1,12 +1,13 @@
 {% extends "partials/base.html" %}
-{% block content %}
+{% load bootstrap5 %}
+{% block title %}
+Film | Create
+{% endblock %}
 
+{% block content %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <ul>
-        {{ form.as_ul }}
-    </ul>
-    <button>Submit</button>
-</form>
+    {% bootstrap_form form %}
+    {% bootstrap_button "Save" button_type="submit" button_class="btn-success" %}
 
-{% endblock %}
+    {% endblock %}

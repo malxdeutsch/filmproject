@@ -25,11 +25,11 @@ def create_category():
 
 def create_film():
     for _ in range (5):
-        Vehicle.objects.create(title = fake.movie.title(),
+        Film.objects.create(title = fake.sentance(),
         release_date = fake.date(),
-        created_in_country = models.random.choice(Country.objects.all()),
-        available_in_countries = models.random.choice(Country.objects.all()),
+        created_in_country = random.choice(films_created_in.objects.all()),
+        available_in_countries = models.random.choice(films_available_in.objects.all()),
         category = models.random.choice(Category.objects.all()),
         director = models.random.choice(Director.objects.all()))
 
-# create_film()
+create_film()
