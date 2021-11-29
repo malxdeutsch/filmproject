@@ -1,0 +1,15 @@
+{% extends 'partials/base.html'%}
+{% block content %}
+{% for film in films %}
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">film.title</h5>
+        {%for director in film.director_set.all %}
+        <li class="card-text">"director.first_name"</li>
+        <li class="card-text">"director.last_name"</li>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
