@@ -130,3 +130,6 @@ try:
 
 except ImportError:
     raise Exception ('A local_settings file MUST exist in order to use this project')
+
+
+LOGOUT_REDIRECT_URL = 'homepage'

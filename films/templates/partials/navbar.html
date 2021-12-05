@@ -5,21 +5,33 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'adddirector' %}">New Director</a>
+                    <a class="nav-link" href="{% url 'new_director' %}">New Director</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'addfilm' %}">New Film</a>
+                    <a class="nav-link" href="{% url 'new_film' %}">New Film</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
+
             </ul>
-        </div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link ">Hello {{ user.username }} Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'login' %}" class="nav-link ">Login</a>
+                </li>
+
+                {% endif %}
+            </ul>
+    </div>
     </div>
 </nav>
